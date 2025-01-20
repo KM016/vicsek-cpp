@@ -5,6 +5,8 @@ System::System(int particleNumber, double sideLength, double timeStep, double no
 {
 	this->particleNumber = particleNumber; // Assign parameter to class member variable
 	this->noiseStrength = noiseStrength;  // Assign parameter to class member variable
+	this->sideLength = sideLength;        // Assign parameter to new member variable
+        this->timeStep = timeStep;  
 	
 	std::cout<< "I am constructing the system" <<std::endl ;
 }
