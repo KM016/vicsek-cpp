@@ -1,0 +1,23 @@
+CC = g++                # Compiler
+CFLAGS = -Wall -g       # Compilation flags (warnings and debugging info)
+SRC = main.cpp          # Source files
+OBJ = $(SRC:.cpp=.o)    # Object files (e.g., main.o)
+EXEC = program          # Executable name
+
+# Default rule (build the executable)
+all: $(EXEC)
+	@echo "Build complete."
+
+# Rule to link object files into the executable
+$(EXEC): $(OBJ)
+	$(CC) $(OBJ) -o $@
+
+# Pattern rule to compile .cpp files into .o files
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean rule to remove generated files
+clean:
+	rm -f $(OBJ) $(EXEC)
+	@echo "Cleaned up object and executable files."
+
