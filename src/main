@@ -1,9 +1,14 @@
-#include 'system.h'
+#include <iostream>  // For std::cout and std::endl
+#include "system.h"  // Include the System class header file
 
-int main(){
+int main() {
+    // Create an instance of the System class with the specified parameters
+    System mySystem(100, 20.0, 0.5, 0.1);
 
-	System mySystem;
-	mySystem.updateRule();
-	return 0;
+    // Output the values of the particle number and noise strength
+    std::cout << "Particle number: " << mySystem.particleNumber << std::endl;
+    std::cout << "Noise strength: " << mySystem.noiseStrength << std::endl;
 
+    return 0;
 }
+

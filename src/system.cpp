@@ -1,10 +1,17 @@
 #include "system.h"
 #include <iostream>
 
-void System::updateRule(){
-  std::cout 'Updating the system';
+System::System(int particleNumber, double sideLength, double timeStep, double noiseStrength)
+{
+	this->particleNumber = particleNumber; // Assign parameter to class member variable
+	this->noiseStrength = noiseStrength;  // Assign parameter to class member variable
+	
+	std::cout<< "I am constructing the system" <<std::endl ;
 }
 
-System::System(){
-  std::cout 'I am constructing the system';
+void System::updateRule(){
+	
+
+	std::cout<<"I am updating the system..."<<std::endl;
+
 }
