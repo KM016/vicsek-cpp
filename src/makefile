@@ -1,15 +1,11 @@
 CC = g++
-OBJ = $(SRC:.cpp=.o)
-CFLAGS = -std=c++17
-SRC = main.cpp
-EXEC = program
+CFLAGS = -O2 -Wall
+SRC = main.cpp system.cpp box.cpp particle.cpp
+EXEC = myvicsek
 
-all: $(EXEC)
-	@echo "build complete"
-$(EXEC): $(OBJ)
-	$(CC) $(OBJ) -o $@
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+
+all: 
+	$(CC) $(CFLAGS) $(SRC) -o $(EXEC)
+
 clean:
-	rm -f $(OBJ) $(EXEC)
-	@echo "Cleaned up object and executable files."
+	rm -f $(EXEC)

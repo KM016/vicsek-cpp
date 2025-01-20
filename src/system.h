@@ -1,26 +1,31 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
-#include <vector> // to use standard C++ vectors
-// #include "box.h" // yet to be created!
-// #include "particle.h" // yet to be created!
+#include <vector> //to use standard C++ vectors
+#include <random> //to use random number generator
+#include "box.h" 
+#include "particle.h" 
+
 
 class System {
-public:
-    // Constructor declaration
-    System(int particleNumber, double sideLength, double timeStep, double noiseStrength);
+    public:
+        System(int particleNumber,double sideLength, double timeStep,double noiseStrength,int seed);
+        int   particleNumber;
+        double noiseStrength;
+        double sideLength;
+        double timeStep;
+        
+        Box simulationBox;
+        std::vector<Particle> particles;
 
-    // Member variables
-    int particleNumber;
-    double noiseStrength;
-    double sideLength;
-    double timeStep; // Renamed from timeStamp to timeStep
-    //Box simulationBox;
-    //std::vector<Particle> particles;
-   
+        // random number generator
+        std::mt19937 gen;  
+        // uniform distribution
+        std::uniform_real_distribution<double> uniformDist;
+        // function to sample uniformly distributed random numbers
+        double uniform(double min, double max);
 
-    void updateRule();
+        void updateRule();
 };
 
 #endif
-
